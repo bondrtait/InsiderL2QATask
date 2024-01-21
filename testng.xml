@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Inside Suite">
-    <test name="Test Basics 1">
-<!--        <parameter name="emailid" value="tester456@gmail.com"/>-->
-<!--        <parameter name="password" value="test@123"/>-->
+    <test name="Base test">
         <classes>
             <class name="HomeCareersPagesTest"/>
+            <class name="QualityAssuranceJobsTest"/>
         </classes>
     </test>
 </suite>

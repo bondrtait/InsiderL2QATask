@@ -1,0 +1,12 @@
+- "Premium Deals" displays items with discounts exclusive for the Premium Members
+- "Everyone is after these products" displays items with discounts based on total net worth of products from a specific merchant
+- "Special discounts for popular categories" displays items with standalone discounts
+- "Bestsellers in daily needs" popular by views/orders items from Groceries/Cosmetics/Hygiene categories
+- "You can also check out these products" displays items from the same category as the viewed product
+- "Recommended advertised products" displays products with active marketing campaign from the same category as the viewed product
+- "Those who looked at this received" displays items bought by customers who had also viewed the currently viewed item
+- "Products purchased by those who viewed this"
+- "Everyone is looking at these" the most viewed items of the same category
+- "taken together" displays items that are often checked out in the same cart with the viewed product
+- "Most viewed products right now" displays items that are most often visited by the customers during the specific recent period
+- "Current best sellers" displays most purchased items during the specific recent period

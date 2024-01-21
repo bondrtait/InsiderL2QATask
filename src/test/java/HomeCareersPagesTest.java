@@ -1,18 +1,24 @@
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pageobjects.CareersPage;
 import pageobjects.HomePage;
 
 public class HomeCareersPagesTest extends BaseTest {
-    private static final String USE_INSIDER_BASE_URL = "https://useinsider.com/";
     private HomePage homePage;
+
+    @BeforeClass
+    public void setup() {
+        String useInsiderBaseUrl = "https://useinsider.com/";
+        driver.get(useInsiderBaseUrl);
+        homePage = new HomePage();
+        homePage.acceptOnlyNecessaryCookies();
+    }
 
     @Test
     public void verifyHomePage() {
-        driver.get(USE_INSIDER_BASE_URL);
-        homePage = new HomePage();
-        homePage.acceptOnlyNecessaryCookies();
-        Assert.assertTrue(homePage.isHomePageDisplayed(), "Home Page should be opened");
+        Assert.assertTrue(homePage.isHomePageDisplayed(),
+                String.format(pageShouldBeOpenedAssertMessage, "Home"));
     }
 
     @Test(dependsOnMethods = "verifyHomePage")
@@ -20,10 +26,14 @@ public class HomeCareersPagesTest extends BaseTest {
         CareersPage careersPage = homePage
                 .clickCompanyDropdown()
                 .clickCareersButton();
-        soft.assertTrue(careersPage.isCareersPageOpen());
-        soft.assertTrue(careersPage.isTeamsSectionDisplayed());
-        soft.assertTrue(careersPage.isLocationsSectionDisplayed());
-        soft.assertTrue(careersPage.isLifeAtInsiderSectionDisplayed());
+        soft.assertTrue(careersPage.isCareersPageOpen(),
+                String.format(pageShouldBeOpenedAssertMessage, "Careers"));
+        soft.assertTrue(careersPage.isTeamsSectionDisplayed(),
+                String.format(sectionShouldBeDisplayedAssertMessage, "Teams"));
+        soft.assertTrue(careersPage.isLocationsSectionDisplayed(),
+                String.format(sectionShouldBeDisplayedAssertMessage, "Locations"));
+        soft.assertTrue(careersPage.isLifeAtInsiderSectionDisplayed(),
+                String.format(sectionShouldBeDisplayedAssertMessage, "Life At Insider"));
         soft.assertAll();
     }
 }
